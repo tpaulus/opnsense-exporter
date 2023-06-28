@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Tom Paulus <tom@tompaulus.com>"]
 readme = "README.md"
-packages = [{ include = "opnsense_exporter" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
