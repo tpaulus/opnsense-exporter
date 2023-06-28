@@ -11,12 +11,12 @@ prometheus_client.REGISTRY.unregister(prometheus_client.PLATFORM_COLLECTOR)
 prometheus_client.REGISTRY.unregister(prometheus_client.PROCESS_COLLECTOR)
 
 # Gateway Metrics
-labels: Final[List[str]] = ["gateway_name"]  # TODO Include address as a label?
+labels: Final[List[str]] = ["gateway_name"]
 
-rtt = prometheus_client.Gauge("rtt", "Round Trip Time", labels)
-rttd = prometheus_client.Gauge("rttd", "Round Trip Time Deviation", labels)
-loss = prometheus_client.Gauge("loss", "Packet Loss Percentage (0-100)", labels)
-up = prometheus_client.Gauge("up", "Gateway Status (up|down)", labels)
+rtt = prometheus_client.Gauge("gateway_rtt", "Round Trip Time", labels)
+rttd = prometheus_client.Gauge("gateway_rttd", "Round Trip Time Deviation", labels)
+loss = prometheus_client.Gauge("gateway_loss", "Packet Loss Percentage (0-100)", labels)
+up = prometheus_client.Gauge("gateway_up", "Gateway Status (up|down)", labels)
 
 
 def scrape_gateway_metrics(session: Session, base_url: str):
