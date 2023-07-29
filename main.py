@@ -39,7 +39,7 @@ def scrape_gateway_metrics(session: Session, base_url: str):
         else:
             loss.labels(gateway_name=gateway['name']).set(float(gateway['loss'][:-2]))
 
-        up.labels(gateway_name=gateway['name']).set(0 if gateway['status'] == 'down' else 1)
+        up.labels(gateway_name=gateway['name']).set(0 if gateway['status'] != 'none' else 1)
 
 
 if __name__ == '__main__':
