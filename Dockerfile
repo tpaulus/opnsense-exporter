@@ -20,6 +20,8 @@ WORKDIR /app
 COPY poetry.lock pyproject.toml ./
 RUN poetry check && poetry install --no-interaction --no-cache
 
+USER 1000
+
 # Run your app
 COPY . /app
 CMD [ "poetry", "run", "python", "main.py" ]
